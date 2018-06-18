@@ -83,6 +83,7 @@
     <link href="//fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&amp;subset=arabic,latin-ext" rel="stylesheet">
     <! //googlefonts -->
 
+
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -91,7 +92,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body">
+<body>
     <!--https://mdbootstrap.com/img/Photos/Others/gradient1.jpg-->
     <div class="bgimg-1">
     <form runat="server">
@@ -126,7 +127,7 @@
                     <a class="navbar-brand" href="About.aspx"><b>MorCVD</b></a>
                 </div>
                <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav text-center">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder_navigation" runat="server">
             </asp:ContentPlaceHolder>
                 </ul>

@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="MorCVD" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="database.About" %>
 
+
+
+
 <asp:Content ID="ContentPlaceHolder" ContentPlaceHolderID="ContentPlaceHolder_navigation" runat="server">
     <script>
         function addactiveclass() {
@@ -10,10 +13,12 @@
         }
     </script>
 
-    
+   
         <li class="active" style="font-weight:bold;">
+
             <!--<asp:LinkButton ID="LinkButton_Home" runat="server" OnClick="LinkButton_Home_Click">Home</asp:LinkButton></li>-->
         <li class="active" style="font-weight:bold;">
+            
             <asp:LinkButton ID="LinkButton_Disease" runat="server" OnClick="LinkButton_Disease_Click">Disease</asp:LinkButton></li>
         <li class="active" style="font-weight:bold;">
             <asp:LinkButton ID="LinkButton_Pathogen" runat="server" OnClick="LinkButton_Pathogen_Click">Pathogen Specific Interactions</asp:LinkButton></li>
@@ -23,12 +28,100 @@
             <asp:LinkButton ID="LinkButton_Gene" runat="server" OnClick="LinkButton_Gene_Click">Gene Ontologies</asp:LinkButton></li>
         <li class="active" style="font-weight:bold;">
             <asp:LinkButton ID="LinkButton_Interaction_Methods" runat="server" OnClick="LinkButton_Interaction_Methods_Click">Interactions Detection Methods</asp:LinkButton></li>
-        <li class="active" style="font-weight:bold;">
-            <asp:LinkButton ID="LinkButton_Interactors" runat="server" OnClick="LinkButton_Interactors_Click">Interactors & Drug Targets</asp:LinkButton></li>
-        <li class="active" style="font-weight:bold;">
-            <asp:LinkButton ID="LinkButton_Documentation" runat="server" OnClick="LinkButton_Documentation_Click">Documentation</asp:LinkButton></li>
+  
     <!--<li class="active" style="font-weight:bold;">
-    <asp:LinkButton ID="LinkButton_Contact" runat="server" OnClick="LinkButton_Contact_Click">LinkButton</asp:LinkButton></li>-->
+            <asp:LinkButton ID="LinkButton_Interactors" runat="server" OnClick="LinkButton_Interactors_Click">Interactors & Drug Targets</asp:LinkButton></li>-->
+       
+    
+        <style>
+
+
+
+.dropbtn {
+    background-color: black;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: aqua;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+/*.dropdown:hover .dropbtn {background-color: #3e8e41;}*/
+
+
+        </style>
+
+        <div class="dropdown">
+                   <button class="dropbtn" style="font-weight:bold;">Interactors & Drug Targets</button>
+  <div class="dropdown-content">
+       
+           <ul class="nav navbar-nav dropdown-content">
+
+               
+               
+    <li class="active" style="font-weight:bold;">
+        <asp:LinkButton ID="LinkButton_test" runat="server" OnClick="LinkButton_test_Click">Interactors</asp:LinkButton> </li>
+
+     <li class="active" style="font-weight:bold;">
+      <asp:LinkButton ID="LinkButton_common_int" runat="server" align="left" OnClick="LinkButton_common_int_Click">Common Interactors</asp:LinkButton> </li>
+ 
+      </ul>
+      
+    
+  </div>    
+        </div>
+
+
+        <div class="dropdown">
+
+   
+  <button class="dropbtn" style="font-weight:bold;">Contact Us</button>
+  <div class="dropdown-content">
+       
+           <ul class="nav navbar-nav dropdown-content">
+                <li class="active" style="font-weight:bold;">
+            <asp:LinkButton ID="LinkButton_Documentation" runat="server" OnClick="LinkButton_Documentation_Click">Documentation</asp:LinkButton></li>
+       <li class="active dropdown-toggle" style="font-weight:bold;">
+    <asp:LinkButton ID="LinkButton_Contact" runat="server" PostBackUrl="~/Contact.aspx">Drop a line</asp:LinkButton></li>
+    <li class="active" style="font-weight:bold;">
+        <asp:LinkButton ID="LinkButton_team" runat="server" OnClick="LinkButton_team_Click">Meet our Team</asp:LinkButton>
+    </li>
+      </ul>
+      
+    
+  </div>
+</div>
+    </li>
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -43,10 +136,16 @@
 
      <asp:MultiView ID="MultiView1" runat="server">
 
-            <asp:View ID="home" runat="server">
-                <p>
+         <asp:View ID="home" runat="server">
+                <div class="row">
+                    <p>
                     <br />
                     </p>
+                    <p>
+                    <br />
+                    </p>
+                    
+                    </div>
     <center><h1 style="color:black;font-weight:bold; font-family: 'Roboto Slab', serif; font-size:72px;">WELCOME TO MorCVD</h1></center>
                 <div class="row">
                 <p>
@@ -79,6 +178,14 @@ HPPPIs.
                     </div>
                 </div>
                     </div>
+                    <div class="row">
+                    <p>
+                    <br />
+                    </p>
+                    <p>
+                    <br />
+                    </p>
+                    </div>
 
         <!--<p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>-->
 
@@ -88,7 +195,7 @@ HPPPIs.
 
             
 
-             <asp:View ID="disease" runat="server">
+         <asp:View ID="disease" runat="server">
                
                  
                  <div class="row text-center text-capitalize">
@@ -101,7 +208,8 @@ HPPPIs.
                 <h1 style="font-weight:bold; font-size:xx-large; font-family: 'Roboto Slab', serif;">DISEASE</h1>    
                 </div>
                  <div class="row">
-                     <p> 
+                     <p>
+                         <br />
 
                      </p>
                  </div>
@@ -152,12 +260,12 @@ HPPPIs.
                   <div class="row text-center">
                       
                    <p>
-
+                       <br />
                    </p>
                          
                     <asp:Button ID="disease_button" runat="server" Text="Submit" CssClass="btn-success btn-lg" OnClick="disease_button_Click"/>
              <p>
-
+                 <br />
                    </p>
                    
                           
@@ -197,7 +305,9 @@ HPPPIs.
             </asp:View>
 
 
-            <asp:View ID="pathogen_specific_interactions" runat="server">
+
+
+         <asp:View ID="pathogen_specific_interactions" runat="server">
 
       <div class="row text-center text-capitalize">
                      <p>
@@ -210,6 +320,7 @@ HPPPIs.
                 </div>
                 <div class="row">
                 <p>
+                    <br />
 
                 </p>    
                 </div>
@@ -221,7 +332,7 @@ HPPPIs.
                     <div class="col-md-2">
                         <table>
                             <tr>
-                        <th style="font-size:x-large;">Select the Pathogen</th>    
+                        <th style="font-size:23px;">Select the Pathogen</th>    
                                 </tr>
                         </table>
                         <h3></h3>
@@ -240,6 +351,7 @@ HPPPIs.
                     </div>
                 <div class="row text-center">
                     <p>
+                        <br />
                         </p>
                     <div class="col-md-12">
                         <asp:Button ID="pathogen_specific_submit" runat="server" Text="Submit" CssClass="btn-success btn-lg" OnClick="pathogen_specific_submit_Click" />
@@ -287,7 +399,7 @@ HPPPIs.
 
 
                
-            <asp:View ID="protein_spefic_interactions" runat="server">
+         <asp:View ID="protein_spefic_interactions" runat="server">
                 <div class="row text-capitalize text-center">
                         <p>
                          <br />
@@ -299,6 +411,7 @@ HPPPIs.
                 </div>
                 <div class="clearfix">
                     <p>
+                        <br />
                         </p>
                 </div>
                 <div class="row">
@@ -493,7 +606,7 @@ HPPPIs.
 
                         <div class="row text-center">
                          <div class="col-md-offset-1 col-md-10" style="font-size:large;">
-                            <asp:GridView ID="protein_specific_gridview" runat="server" CellPadding="4" ForeColor="#333333" GridLines="Both" Width="100%" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Center" ShowHeaderWhenEmpty="true">
+                            <asp:GridView ID="protein_specific_gridview" runat="server" CellPadding="4" ForeColor="#333333" GridLines="Both" Caption="* For Degree 1,2,3, please refer to documentation" Width="100%" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Center" ShowHeaderWhenEmpty="true" AllowPaging="true" PageSize="100" OnPageIndexChanging="protein_specific_gridview_PageIndexChanging">
                                 <AlternatingRowStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="left" />
                                    <RowStyle HorizontalAlign="Left" />
                                 <EditRowStyle BackColor="Transparent" />
@@ -508,7 +621,17 @@ HPPPIs.
                                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                             </asp:GridView>
                          </div>
+                            <div class="row">
+                            <p>
+                                <br />
+                            </p>    
+                            </div>
                         </div>
+                        <div class="row">
+                            <p>
+                                <br />
+                            </p>    
+                            </div>
                     </asp:View>
 
                     </asp:MultiView>
@@ -518,7 +641,7 @@ HPPPIs.
 
 
 
-            <asp:View ID="gene_ontologies" runat="server">
+         <asp:View ID="gene_ontologies" runat="server">
                 <div class="row text-capitalize text-center">
                     <p>
                         <br />
@@ -528,6 +651,7 @@ HPPPIs.
                 </div>
                 <div class="clearfix">
                     <p>
+                        <br />
                         </p>
                 </div>
                       <div class="row">
@@ -611,7 +735,7 @@ Provide Uniprot Accession Number (Example: Q13509)</td>
                             </div>
                             <div class="row text-center">
                            <div class="col-md-offset-1 col-md-10" style="font-size:large;">
-                                <asp:GridView ID="gene_ontologies_human_uniprot_gridview" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Left" GridLines="Both" ShowHeaderWhenEmpty="true" >
+                                <asp:GridView ID="gene_ontologies_human_uniprot_gridview" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Left" GridLines="Both" ShowHeaderWhenEmpty="true" AllowPaging="true" PageSize="100" OnPageIndexChanging="gene_ontologies_human_uniprot_gridview_PageIndexChanging1" >
                                     <RowStyle HorizontalAlign="Left" />
 
                                 <AlternatingRowStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Left" />
@@ -698,7 +822,7 @@ Provide Uniprot Accession Number (Example: P21605)</td>
                                <div class="row text-center">
                                    <div class="col-md-offset-1 col-md-10" style="font-size:large;">
                             <table style="width:100%">
-                                <asp:GridView ID="gene_ontology_pathogen_protein_gridview" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Left" GridLines="Both" ShowHeaderWhenEmpty="true">
+                                <asp:GridView ID="gene_ontology_pathogen_protein_gridview" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Left" GridLines="Both" ShowHeaderWhenEmpty="true" AllowPaging="true" PageSize="100" OnPageIndexChanging="gene_ontology_pathogen_protein_gridview_PageIndexChanging1">
                                     <AlternatingRowStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Left" />
                                     <RowStyle HorizontalAlign="Left" />
                                 <EditRowStyle BackColor="Transparent" />
@@ -714,7 +838,17 @@ Provide Uniprot Accession Number (Example: P21605)</td>
                                 </asp:GridView>
                             </table>    
                                        </div>
+                                   <div class="row">
+                                   <p>
+                                       <br />
+                                   </p>    
+                                   </div>
                             </div>
+                            <div class="row">
+                                   <p>
+                                       <br />
+                                   </p>    
+                                   </div>
                         </asp:View>
                     </asp:MultiView>
                 </div>
@@ -723,7 +857,7 @@ Provide Uniprot Accession Number (Example: P21605)</td>
 
 
 
-            <asp:View ID="interaction_detection_method" runat="server">
+         <asp:View ID="interaction_detection_method" runat="server">
                 <div class="row text-capitalize text-center">
                     <p>
                         <br />
@@ -760,6 +894,7 @@ Provide Uniprot Accession Number (Example: P21605)</td>
                 </div>
                 <div class="row">
                    <p>
+                       <br />
                        </p>
                 </div>
                 <div class="row text-center">
@@ -802,7 +937,13 @@ Provide Uniprot Accession Number (Example: P21605)</td>
 
 
 
-            <asp:View ID="interactors" runat="server">
+         <asp:View ID="interactors" runat="server">
+                  <div class="row text-capitalize text-center">
+                    <p>
+                        <br />
+                        <br />
+                    </p>
+                      </div>
               <div class="row text-capitalize text-center">
                     <h2 style="font-weight: bold; font-family: 'Roboto Slab', serif;">INTERACTORS</h2>
                 </div>
@@ -930,7 +1071,7 @@ Provide Uniprot Accession Number (Example: Q13509)</td>
 
                     <div class="row text-center">
                         <div class="col-md-12" style="font-size:large;">
-                            <asp:GridView ID="GridView3" Width="95%" CellPadding="4" runat="server" ForeColor="Transparent" BorderColor="Black" BorderWidth="2px" GridLines="Both" AllowPaging="true" PageSize="100" OnPageIndexChanging="GridView2_PageIndexChanging" ShowHeaderWhenEmpty="true">
+                            <asp:GridView ID="GridView3" Width="95%" CellPadding="4" runat="server" ForeColor="Transparent" BorderColor="Black" BorderWidth="2px" GridLines="Both" AllowPaging="true" PageSize="100" OnPageIndexChanging="GridView3_PageIndexChanging" ShowHeaderWhenEmpty="true">
                                 <AlternatingRowStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Left" />
                                 <RowStyle HorizontalAlign="Left" />
 
@@ -962,59 +1103,65 @@ Provide Uniprot Accession Number (Example: Q13509)</td>
 
                     </div>
 
-                    <!--<div class="row text-center">
-                                         <asp:GridView ID="GridView1" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
-                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775"></AlternatingRowStyle>
+                        <div class="row text-center">
+                    <div class="col-md-12" style="font-size:large;">
+                    
+                                         <asp:GridView ID="interactors_pathogen_gridview" Width="95%" CellPadding="4" runat="server" ForeColor="Transparent" BorderColor="Black" BorderWidth="2px" GridLines="Both" AllowPaging="true" PageSize="100" OnPageIndexChanging="interactors_pathogen_gridview_PageIndexChanging">
+                                    <AlternatingRowStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Left" />
+                                <RowStyle HorizontalAlign="Left" />
 
-                                    <EditRowStyle BackColor="#999999"></EditRowStyle>
+                                <EditRowStyle BackColor="Transparent" HorizontalAlign="Left" />
+                                <FooterStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" />
 
-                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White"></FooterStyle>
+                                <HeaderStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="Transparent" ForeColor="Black" />
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
 
-                                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White"></HeaderStyle>
-
-                                    <PagerStyle HorizontalAlign="Center" BackColor="#284775" ForeColor="White"></PagerStyle>
-
-                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333"></RowStyle>
-
-                                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333"></SelectedRowStyle>
-
-                                    <SortedAscendingCellStyle BackColor="#E9E7E2"></SortedAscendingCellStyle>
-
-                                    <SortedAscendingHeaderStyle BackColor="#506C8C"></SortedAscendingHeaderStyle>
-
-                                    <SortedDescendingCellStyle BackColor="#FFFDF8"></SortedDescendingCellStyle>
-
-                                    <SortedDescendingHeaderStyle BackColor="#6F8DAE"></SortedDescendingHeaderStyle>
                                 </asp:GridView>    
+                        </div>
+                        
+                            </div>
+                                 <div class="row">
+                        <p>
+                            <br />
+                        </p>
+
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-md-12" style="font-size:large;">
+                                         <asp:GridView ID="GridView1" runat="server" Width="95%" CellPadding="4" ForeColor="Transparent" BorderColor="Black" BorderWidth="2px" GridLines="Both" AllowPaging="true" PageSize="100" OnPageIndexChanging="GridView1_PageIndexChanging">
+                                    <AlternatingRowStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Left" />
+                                <RowStyle HorizontalAlign="Left" />
+
+                                <EditRowStyle BackColor="Transparent" HorizontalAlign="Left" />
+                                <FooterStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" />
+
+                                <HeaderStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="Transparent" ForeColor="Black" />
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                </asp:GridView> 
+                            </div>
                             </div>
 
-                <div class="row text-center">
-                    
-                                         <asp:GridView ID="interactors_human_gridview" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
-                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775"></AlternatingRowStyle>
+                             <div class="row">
+                        <p>
+                            <br />
+                        </p>
 
-                                    <EditRowStyle BackColor="#999999"></EditRowStyle>
+                    </div>
 
-                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White"></FooterStyle>
-
-                                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White"></HeaderStyle>
-
-                                    <PagerStyle HorizontalAlign="Center" BackColor="#284775" ForeColor="White"></PagerStyle>
-
-                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333"></RowStyle>
-
-                                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333"></SelectedRowStyle>
-
-                                    <SortedAscendingCellStyle BackColor="#E9E7E2"></SortedAscendingCellStyle>
-
-                                    <SortedAscendingHeaderStyle BackColor="#506C8C"></SortedAscendingHeaderStyle>
-
-                                    <SortedDescendingCellStyle BackColor="#FFFDF8"></SortedDescendingCellStyle>
-
-                                    <SortedDescendingHeaderStyle BackColor="#6F8DAE"></SortedDescendingHeaderStyle>
-                                </asp:GridView>    
-                        
-                            </div>-->
+                
 
 
                         </div>
@@ -1024,7 +1171,575 @@ Provide Uniprot Accession Number (Example: Q13509)</td>
             </asp:View>
 
 
-            <asp:View ID="documentation" runat="server">
+         <asp:View ID="test_view" runat="server">
+
+
+             <div class="row text-capitalize text-center">
+                 <p>
+                     <br />
+                     <br />
+                 </p>
+                 <h2 style="font-weight: bold; font-family: 'Roboto Slab', serif;">Interactors</h2>
+             </div>
+                <div class="clearfix">
+                    <p>
+                        <br />
+                        </p>
+                </div>
+                      <div class="row">
+                          <div class="col-md-4">
+                             
+                          </div>
+                          <div class="col-md-2">
+                    <table style="width:100%; font-size:x-large;">
+                        <tr>
+                            <th>Host Organism</th>
+                            <td>
+                               </td>
+                        </tr>
+                    
+                    </table>
+                              </div>
+                          <div class="col-md-4">
+                          <table>
+                              <tr>
+                                  <th> <asp:DropDownList ID="test_drop" runat="server" CssClass="btn-lg dropdown-toggle" AutoPostBack="True" OnSelectedIndexChanged="test_drop_SelectedIndexChanged">
+                                    <asp:ListItem>Select</asp:ListItem>
+                                    <asp:ListItem Value="HOST_PROTEIN">Human</asp:ListItem>
+                                    <asp:ListItem Value="PATHOGEN_PROTEIN">Pathogen</asp:ListItem>
+                                </asp:DropDownList></th>
+                              </tr>
+                          </table>    
+                          </div>
+
+                    </div>
+           
+                <div class="row">
+                    <asp:MultiView ID="test_multiview" runat="server">
+                         
+                        <asp:View ID="test_human_view" runat="server">
+                          
+                            <div class="row">
+                                <p>
+                                    
+                                </p>
+                                <div class="col-md-4">
+                                    
+                                </div>
+                                <div class="col-md-2">
+                                <table style="width:100%; font-size:large;">
+                                    <tr>
+                                        <th>Uniprot Accesion Number</th>
+                                        <td>
+                                            </td>
+                                        
+                                    </tr>
+                           
+                                </table>
+                                    
+                                </div>
+                                <div class="col-md-4">
+                                <table style="font-size:large;">
+                                <tr>
+                                    <th>
+                                        <asp:TextBox ID="text_human_textbox" runat="server" CssClass="form-control"> </asp:TextBox>
+                                    </th>
+                                </tr>  
+                                             <tr>
+                                      
+                                                 <td>Provide Uniprot Accession Number (Example: Q13509)</td> 
+                                    </tr>
+                                </table>
+                                </div>
+                                </div>
+                          
+                                <div class="row text-center">
+                                      <p>
+                                    
+                                </p>
+                                    <asp:Button ID="test_human_submit" CssClass="text-center btn-success btn-lg" runat="server" Text="Submit" OnClick="test_human_submit_Click" />
+                                </div>
+                            <div class="row">
+                                <p>
+                                    <br />
+                                </p>
+                            </div>
+                            <div class="row text-center">
+                           <div class="col-md-offset-1 col-md-10" style="font-size:large;">
+                                <asp:GridView ID="test_human_gridview" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Left" GridLines="Both" ShowHeaderWhenEmpty="true" AllowPaging="true" PageSize="100" OnPageIndexChanging="test_human_gridview_PageIndexChanging" >
+                                    <RowStyle HorizontalAlign="Left" />
+
+                                <AlternatingRowStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Left" />
+                                <EditRowStyle BackColor="Transparent" />
+                                <FooterStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <HeaderStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="Transparent" ForeColor="Black" />
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                </asp:GridView>
+                           </div>
+                           
+                          <div class="row">
+                                <p>
+                                    <br />
+                                </p>
+                            </div>
+
+                            </div>
+                            
+                                 <div class="row text-center">
+                                        <div class="col-md-offset-1 col-md-10" style="font-size:large;">
+                                <asp:GridView ID="test_human_gridview_2" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Left" GridLines="Both" ShowHeaderWhenEmpty="true" AllowPaging="true" PageSize="100" OnPageIndexChanging="test_human_gridview_2_PageIndexChanging" >
+                                    <RowStyle HorizontalAlign="Left" />
+
+                                <AlternatingRowStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Left" />
+                                <EditRowStyle BackColor="Transparent" />
+                                <FooterStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <HeaderStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="Transparent" ForeColor="Black" />
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                </asp:GridView>
+                           </div>
+                                </div>
+
+                            <div class="row">
+                                <p>
+                                    <br />
+                                </p>
+                                <p>
+                                    <br />
+                                </p>
+                            </div>
+                           
+                                
+
+                        </asp:View>
+                        <asp:View ID="test_pathogen_view" runat="server">
+                            <div class="row">
+                                <p>
+                                    </p>
+                                <div class="col-md-4">
+                                    
+                                </div>
+                                <div class="col-md-2">
+                                <table style="width:100%; font-size:large;">
+                                
+                                    <tr>
+                                        <th>Uniprot Accession Number</th>
+                                      
+                                  
+
+                                    </tr>
+                                  
+                                    </table>
+
+                                    </div>
+                                <div class="col-md-4">
+                                <table style="font-size:large;">
+                                    <tr>
+                                        <th>
+                                            <asp:TextBox ID="test_pathogen_textbox" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </th>
+                                        <tr>
+                                            <td>Provide Uniprot Accession Number (Example: P11484)</td>
+                                        </tr>
+                                    </tr>
+                                </table>    
+                                </div>
+
+                            </div>
+                              <div class="row">
+                                <p>
+                                    
+                                </p>
+                            </div>
+                          
+                            <div class="row text-center">
+                                <asp:Button ID="test_pathogen_submit" CssClass="text-center btn-success btn-lg" runat="server" Text="Submit" OnClick="test_pathogen_submit_Click" />
+                                </div>
+                           <div class="row">
+                                <p>
+                                    <br />
+                                </p>
+                            </div>
+                               <div class="row text-center">
+                                   <div class="col-md-offset-1 col-md-10" style="font-size:large;">
+                            <table style="width:100%">
+                                <asp:GridView ID="test_pathogen_gridview" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Left" GridLines="Both" ShowHeaderWhenEmpty="true" AllowPaging="true" PageSize="100" OnPageIndexChanging="gene_ontology_pathogen_protein_gridview_PageIndexChanging1">
+                                    <AlternatingRowStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Left" />
+                                    <RowStyle HorizontalAlign="Left" />
+                                <EditRowStyle BackColor="Transparent" />
+                                <FooterStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <HeaderStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="Transparent" ForeColor="Black" />
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                </asp:GridView>
+                            </table>    
+                                       </div>
+                                   <div class="row">
+                                   <p>
+                                       <br />
+                                   </p>    
+                                   </div>
+                            </div>
+
+                               <div class="row text-center">
+                                   <div class="col-md-offset-1 col-md-10" style="font-size:large;">
+                            <table style="width:100%">
+                                <asp:GridView ID="test_pathogen_gridview_2" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Left" GridLines="Both" ShowHeaderWhenEmpty="true" AllowPaging="true" PageSize="100" OnPageIndexChanging="test_pathogen_gridview_2_PageIndexChanging">
+                                    <AlternatingRowStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Left" />
+                                    <RowStyle HorizontalAlign="Left" />
+                                <EditRowStyle BackColor="Transparent" />
+                                <FooterStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <HeaderStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="Transparent" ForeColor="Black" />
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                </asp:GridView>
+                            </table>    
+                                       </div>
+                                   <div class="row">
+                                   <p>
+                                       <br />
+                                   </p>    
+                                   </div>
+                            </div>
+
+                            <div class="row">
+                                   <p>
+                                       <br />
+                                   </p>    
+                                   </div>
+                        </asp:View>
+                    </asp:MultiView>
+                </div>
+
+
+         </asp:View>
+
+
+         <asp:View ID="common_interactors" runat="server">
+
+
+             <div class="row text-capitalize text-center">
+                 <p>
+                     <br />
+                     <br />
+                 </p>
+                 <h2 style="font-weight: bold; font-family: 'Roboto Slab', serif;">Common Interactors</h2>
+             </div>
+                <div class="clearfix">
+                    <p>
+                        <br />
+                        </p>
+                </div>
+                      <div class="row">
+                          <div class="col-md-4">
+                             
+                          </div>
+                          <div class="col-md-2">
+                    <table style="width:100%; font-size:x-large;">
+                        <tr>
+                            <th>Host Organism</th>
+                            <td>
+                               </td>
+                        </tr>
+                    
+                    </table>
+                              </div>
+                          <div class="col-md-4">
+                          <table>
+                              <tr>
+                                  <th> <asp:DropDownList ID="common_drop" runat="server" CssClass="btn-lg dropdown-toggle" AutoPostBack="True" OnSelectedIndexChanged="common_drop_SelectedIndexChanged">
+                                    <asp:ListItem>Select</asp:ListItem>
+                                    <asp:ListItem Value="HOST_PROTEIN">Human</asp:ListItem>
+                                    <asp:ListItem Value="PATHOGEN_PROTEIN">Pathogen</asp:ListItem>
+                                </asp:DropDownList></th>
+                              </tr>
+                          </table>    
+                          </div>
+
+                    </div>
+           
+                <div class="row">
+                    <asp:MultiView ID="common_multiview" runat="server">
+                         
+                        <asp:View ID="common_human_view" runat="server">
+                          
+                            <div class="row">
+                                <p>
+                                    
+                                </p>
+                                <div class="col-md-4">
+                                    
+                                </div>
+                                <div class="col-md-2">
+                                <table style="width:100%; font-size:large;">
+                                    <tr>
+                                        <th>Uniprot Accesion Numbers</th>
+                                        <td>
+                                            </td>
+                                        
+                                    </tr>
+                           
+                                </table>
+                                    
+                                </div>
+                                <div class="col-md-4">
+                                <table style="font-size:large;">
+                                <tr>
+                                    <th>
+                                        <asp:TextBox ID="common_human_text_1" runat="server" CssClass="form-control"> </asp:TextBox>
+                                    </th>
+                                    <th>
+                                    <p>
+                                        &amp; 
+
+                                    </p>    
+                                    </th>
+                                    <th>
+                                         <asp:TextBox ID="common_human_text_2" runat="server" CssClass="form-control"> </asp:TextBox>
+                                    </th>
+                                </tr>  
+                                     
+                                </table>
+
+                                </div>
+                                </div>
+                            <div class="row">
+                            <div class="col-md-4">
+                                </div>
+                                <div class="col-md-2">
+                                </div>
+                                <div class="col-md-6">
+                                    <table>
+                                      <tr>
+                                            <td>Provide Uniprot Accession Numbers</td>
+                                        </tr>
+                                        </table>
+                                </div>
+
+
+                            </div>
+                          
+                                <div class="row text-center">
+                                      <p>
+                                    
+                                </p>
+                                    <asp:Button ID="common_human_submit" CssClass="text-center btn-success btn-lg" runat="server" Text="Submit" OnClick="common_human_submit_Click" />
+                                </div>
+                            <div class="row">
+                                <p>
+                                    <br />
+                                </p>
+                            </div>
+                            <div class="row text-center">
+                           <div class="col-md-offset-1 col-md-10" style="font-size:large;">
+                                <asp:GridView ID="common_human_gridview" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Left" GridLines="Both" ShowHeaderWhenEmpty="true" AllowPaging="true" PageSize="100" OnPageIndexChanging="common_human_gridview_PageIndexChanging" >
+                                    <RowStyle HorizontalAlign="Left" />
+
+                                <AlternatingRowStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Left" />
+                                <EditRowStyle BackColor="Transparent" />
+                                <FooterStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <HeaderStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="Transparent" ForeColor="Black" />
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                </asp:GridView>
+                           </div>
+                           
+                          <div class="row">
+                                <p>
+                                    <br />
+                                </p>
+                            </div>
+
+                            </div>
+                            
+                                 <div class="row text-center">
+                                        <div class="col-md-offset-1 col-md-10" style="font-size:large;">
+                                <asp:GridView ID="GridView5" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Left" GridLines="Both" ShowHeaderWhenEmpty="true" AllowPaging="true" PageSize="100" OnPageIndexChanging="test_human_gridview_2_PageIndexChanging" >
+                                    <RowStyle HorizontalAlign="Left" />
+
+                                <AlternatingRowStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Left" />
+                                <EditRowStyle BackColor="Transparent" />
+                                <FooterStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <HeaderStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="Transparent" ForeColor="Black" />
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                </asp:GridView>
+                           </div>
+                                </div>
+
+                            <div class="row">
+                                <p>
+                                    <br />
+                                </p>
+                                <p>
+                                    <br />
+                                </p>
+                            </div>
+                           
+                                
+
+                        </asp:View>
+                        <asp:View ID="common_pathogen_view" runat="server">
+                            <div class="row">
+                                <p>
+                                    </p>
+                                <div class="col-md-4">
+                                    
+                                </div>
+                                <div class="col-md-2">
+                                <table style="width:100%; font-size:large;">
+                                
+                                    <tr>
+                                        <th>Uniprot Accession Number</th>
+                                      
+                                  
+
+                                    </tr>
+                                  
+                                    </table>
+
+                                    </div>
+                                <div class="col-md-4">
+                                <table style="font-size:large;">
+                                    <tr>
+                                        <th>
+                                            <asp:TextBox ID="common_pathogen_textbox" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </th>
+                                        <th>
+                                            <p>&amp;</p>
+                                            </th>
+                                        <th>
+                                            <asp:TextBox ID="common_pathogen_textbox_2" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </th>
+                                     
+                                    </tr>
+                                </table>    
+                                </div>
+
+                            </div>
+                              <div class="row">
+                                  <div class="col-md-4">
+                                      </div>
+                                  <div class="col-md-2">
+                                      
+                                  </div>
+                                  <div class="col-md-4">
+                                <table>
+                                       <tr>
+                                            <td>Provide Uniprot Accession Numbers</td>
+                                        </tr>
+                                    </table>
+                                      </div>
+                            </div>
+                          
+                            <div class="row text-center">
+                                <asp:Button ID="common_pathogen_submit" CssClass="text-center btn-success btn-lg" runat="server" Text="Submit" OnClick="common_pathogen_submit_Click" />
+                                </div>
+                           <div class="row">
+                                <p>
+                                    <br />
+                                </p>
+                            </div>
+                               <div class="row text-center">
+                                   <div class="col-md-offset-1 col-md-10" style="font-size:large;">
+                            <table style="width:100%">
+                                <asp:GridView ID="common_pathogen_gridview" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Left" GridLines="Both" ShowHeaderWhenEmpty="true" AllowPaging="true" PageSize="100" OnPageIndexChanging="common_pathogen_gridview_PageIndexChanging">
+                                    <AlternatingRowStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Left" />
+                                    <RowStyle HorizontalAlign="Left" />
+                                <EditRowStyle BackColor="Transparent" />
+                                <FooterStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <HeaderStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="Transparent" ForeColor="Black" />
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                </asp:GridView>
+                            </table>    
+                                       </div>
+                                   <div class="row">
+                                   <p>
+                                       <br />
+                                   </p>    
+                                   </div>
+                            </div>
+
+                               <div class="row text-center">
+                                   <div class="col-md-offset-1 col-md-10" style="font-size:large;">
+                            <table style="width:100%">
+                                <asp:GridView ID="GridView7" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Left" GridLines="Both" ShowHeaderWhenEmpty="true" AllowPaging="true" PageSize="100" OnPageIndexChanging="test_pathogen_gridview_2_PageIndexChanging">
+                                    <AlternatingRowStyle BackColor="Transparent" ForeColor="Black" HorizontalAlign="Left" />
+                                    <RowStyle HorizontalAlign="Left" />
+                                <EditRowStyle BackColor="Transparent" />
+                                <FooterStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <HeaderStyle BackColor="Transparent" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="Transparent" ForeColor="Black" />
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                </asp:GridView>
+                            </table>    
+                                       </div>
+                                   <div class="row">
+                                   <p>
+                                       <br />
+                                   </p>    
+                                   </div>
+                            </div>
+
+                            <div class="row">
+                                   <p>
+                                       <br />
+                                   </p>    
+                                   </div>
+                        </asp:View>
+                    </asp:MultiView>
+                </div>
+
+         </asp:View>
+
+            
+         
+         <asp:View ID="documentation" runat="server">
+                <p>
+                    <br />
+                </p>
                 <p>
                     <br />
                 </p>
@@ -1050,7 +1765,45 @@ enhance the information imparted by the data to users.
                             <br />
 <h2>Release Date:</h2>
                             <br />
+                            June 15, 2018
+                            <br />
+                            <br />
 <h2>Citations:</h2>
+                            <b style="color:black;">[1]</b> Ammari, M.G., et al., HPIDB 2.0: a curated database for host–pathogen interactions.
+Database: The Journal of Biological Databases and Curation, 2016. 2016: p. baw103.
+                            <br />
+<b style="color:black;">[2]</b> Chatr-aryamontri, A., et al., MINT: the Molecular INTeraction database. Nucleic Acids
+Research, 2007. 35(Database issue): p. D572-D574.
+                            <br />
+<b style="color:black;">[3]</b> Stark, C., et al., BioGRID: a general repository for interaction datasets. Nucleic Acids
+Research, 2006. 34(Database issue): p. D535-D539.
+                            <br />
+<b style="color:black;">[4]</b> Launay, G., et al., MatrixDB, the extracellular matrix interaction database: updated
+content, a new navigator and expanded functionalities. Nucleic Acids Research, 2015.
+43(Database issue): p. D321-D327
+                            <br />
+<b style="color:black;">[5]</b> The UniProt Consortium, UniProt: the universal protein knowledgebase. Nucleic Acids
+Research, 2017. 45(Database issue): p. D158-D169.
+                            <br />
+<b style="color:black;">[6]</b> Goll, J., et al., MPIDB: the microbial protein interaction database. Bioinformatics, 2008.
+24(15): p. 1743-1744.
+                            <br />
+<b style="color:black;">[7]</b> Navratil, V., et al., VirHostNet: a knowledge base for the management and the analysis of
+proteome-wide virus–host interaction networks. Nucleic Acids Research, 2009.
+37(Database issue): p. D661-D668.
+                            <br />
+<b style="color:black;">[8]</b> Lynn, D.J., et al., InnateDB: facilitating systems-level analyses of the mammalian innate
+immune response. Molecular Systems Biology, 2008. 4: p. 218-218
+                            <br />
+<b style="color:black;">[9]</b> Xenarios, I., et al., DIP: the Database of Interacting Proteins. Nucleic Acids Research,
+2000. 28(1): p. 289-291
+                            <br />
+<b style="color:black;">[10]</b> Brown, K.R. and I. Jurisica, Unequal evolutionary conservation of human protein
+interactions in interologous networks. Genome Biology, 2007. 8(5): p. R95-R95
+                            <br />
+<b style="color:black;">[11]</b> Kerrien, S., et al., The IntAct molecular interaction database in 2012. Nucleic Acids
+Research, 2012. 40(Database issue): p. D841-D846.
+                            <br />
                             <br />
 <h2>Documentation</h2>
                             <br />
@@ -1058,12 +1811,13 @@ The contents of the database have been arranged and presented keeping ease of us
 We describe here the contents of each page and the operating procedure to access relevant
 data.
                             <br />
-Home/MorCVD: The home page provides a brief description of the database detailing the
+                            <br />
+<b style="color:black;">Home/MorCVD:</b> The home page provides a brief description of the database detailing the
 organisation and tools that are part of the database and the essential parameters listed across
 the various pages. The database contains the following tools:
                             <br />
                             
-<h3>1. Disease:</h3> 
+<b style="color:black;"><h3>1. Disease:</h3> </b>
                             
  The Disease page allows the user to select from a list of Cardiovascular
 diseases and then lists the following information:
@@ -1091,7 +1845,7 @@ diseases and then lists the following information:
                             <br />
                        <br />
                             
-                            <h3>2. Pathogen Specific Interactions:</h3> The page displays a dropdown of 432 pathogens to
+                           <b style="color:black;"> <h3>2. Pathogen Specific Interactions:</h3></b> The page displays a dropdown of 432 pathogens to
 select from and lists the following information:
                             <br />
 &#9679; The first column lists the pathogen proteins belonging to the pathogen selected
@@ -1102,7 +1856,8 @@ interact with.
                             <br />
 &#9679; The third column lists the type of the respective interactions.
                             <br />
-3. Protein Specific Interactions: The page lets us choose for proteins from either the
+                            <br />
+<b style="color:black;"><h3>3. Protein Specific Interactions:</h3></b> The page lets us choose for proteins from either the
 host or the pathogen. The user needs to supply the Uniprot accession number for the
 required protein. Additionally, the user is required to select the pathogen name as well
 in case pathogen is selected. Once the user inputs the necessary data the page displays
@@ -1146,7 +1901,7 @@ given protein occurs, for the data present in the database.
 c. Degree 3: This degree is the sum of Degree1 and Degree 2.
                             <br />
                             <br />
-<h3>4. Gene Ontologies:</h3> This page requires the user to select between human or pathogen
+<b style="color:black;"><h3>4. Gene Ontologies:</h3></b> This page requires the user to select between human or pathogen
 from the dropdown “Host Organism”, the user then needs to supply the relevant
 Uniprot Accession number. The following data is then displayed:
                             <br />
@@ -1158,13 +1913,13 @@ Uniprot Accession number. The following data is then displayed:
 function and GO Id for all interactions present in the database.
                             <br />
                             <br />
-<h3>5. Interaction Detection Method:</h3> The page allows the user to list the interaction data
+<b style="color:black;"><h3>5. Interaction Detection Method:</h3></b> The page allows the user to list the interaction data
 that can be obtained by a particular Interaction Detection Method, selected from a
 drop-down menu. The page lists the host protein, pathogen protein and the interaction
 type for each reaction.
                             <br />
                             <br />
-<h3>6. Interactors:</h3> This page allows us to view all the interactors from the same as well as
+<b style="color:black;"><h3>6. Interactors:</h3></b> This page allows us to view all the interactors from the same as well as
 different species that may or may not be part of the interactions listed in the database,
 for a particular pathogen or host protein. Additionally, we also provide information
 regarding whether the given protein happens to be a drug target or not. The
@@ -1177,28 +1932,32 @@ user is a drug target.
 such interactor proteins may be significant in case of investigation for cross
 talk in different pathways possessing a certain degree of synergism.
                             <br />
-FAQs
-                            <br/>
-<h3>Q. What is MorCVD?</h3>
                             <br />
+<h2 style="font-weight:bold;">FAQs</h2>
+                            <br/>
+<b style="color:black;"><h3>Q. What is MorCVD?</h3></b>
+                            
 MorCVD is a database containing data of host - pathogen protein-protein interactions
 (HPPPIs) involved in cardiovascular diseases(CVDs). This database covers 19 major
 conditions such as Viral myocarditis, Bacterial endocarditis and Dilated
 Cardiomyopathy, along with other microbial CVDs.
                             <br />
-<h3>Q. Why are HPIs important?</h3>
                             <br />
+<b style="color:black;"><h3>Q. Why are HPIs important?</h3></b>
+                         
 Identification and analysis of host pathogen protein interactions is essential for
 analysis of infectious diseases and to devise pathway intervention strategies.
                             <br />
-<h3>Q. What are Gene Ontology Ids?</h3>
+                            <br />
+<b style="color:black;"><h3>Q. What are Gene Ontology Ids?</h3></b>
                             
 The objective of Gene Ontology ids are to provide controlled vocabularies for the
 description of the biological process, molecular function, and cellular component of
 gene products.
                             <br/>
-<h3>Q. What do the Degrees mean on the Protein Specific Interactions page?</h3>
                             <br />
+<b style="color:black;"><h3>Q. What do the Degrees mean on the Protein Specific Interactions page?</h3></b>
+                           
 For human proteins the following three degrees have been listed:
                             <br />
 Degree 1: This degree states the no. of pathogen proteins; the host protein has
@@ -1219,25 +1978,26 @@ protein occurs, for the data present in the database.
                             <br />
 Degree 3: This degree is the sum of Degree1 and Degree 2.
                             <br />
-
-<h3>Q. Where can I refer to the Uniprot accession proteins for entry in pages such as Gene
-Ontologies and Protein Specific Interactions?</h3>
                             <br />
+
+<b style="color:black;"><h3>Q. Where can I refer to the Uniprot accession proteins for entry in pages such as Gene
+Ontologies and Protein Specific Interactions?</h3></b>
 
 There is no provision as such to explicitly list the human and the pathogen proteins
 present in the database separately, however one may refer to the pathogen specific
 interactions or disease page information and select a protein from the information
 that’s listed for a query.
                             <br />
-<h3>Q. How do I contact the team?</h3>
                             <br />
+<b style="color:black;"><h3>Q. How do I contact the team?</h3></b>
+                            
 Click on the contact us page where you may write to us your query. Alternatively
 information on the members of the team has been given here.
                             <br />
-<h3>Q. Is there a provision for adding new data or correcting existing data?</h3>
                             <br />
-<h3>Q. Where can we report bugs?</h3>
-                            <br />
+
+<b style="color:black;"><h3>Q. Where can we report bugs?</h3></b>
+                           
 You may mention all bugs and errata in the form on the contact us page.
                         </p>
                         <div class="row">
@@ -1247,418 +2007,245 @@ You may mention all bugs and errata in the form on the contact us page.
                         </div>
                     </div>
             </asp:View>
-         <asp:View ID="contact" runat="server">
+        
+            
+            
+           
+            <asp:View ID="contact" runat="server">
                 
 
-	<div class="container-contact100">
-		<div class="wrap-contact100">
-			<form class="contact100-form validate-form">
-				<span class="contact100-form-title">
-					Get in Touch
-				</span>
-
-				<div class="wrap-input100 validate-input" data-validate="Name is required">
-					<input class="input100" id="name" type="text" name="name" placeholder="Name">
-					<label class="label-input100" for="name">
-						<span class="lnr lnr-user"></span>
-					</label>
-				</div>
-
-				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-					<input class="input100" id="email" type="text" name="email" placeholder="Email">
-					<label class="label-input100" for="email">
-						<span class="lnr lnr-envelope"></span>
-					</label>
-				</div>
-
-				<div class="wrap-input100 validate-input" data-validate = "Phone is required">
-					<input class="input100" id="phone" type="text" name="phone" placeholder="Phone">
-					<label class="label-input100" for="phone">
-						<span class="lnr lnr-phone-handset"></span>
-					</label>
-				</div>
-
-				<div class="wrap-input100 validate-input" data-validate = "Message is required">
-					<textarea class="input100" name="message" placeholder="Your message..."></textarea>
-				</div>
-
-				<div class="contact100-form-checkbox">
-					<input class="input-checkbox100" id="ckb1" type="checkbox" name="copy-mail">
-					<label class="label-checkbox100" for="ckb1">
-						Send copy to my-email
-					</label>
-				</div>
-
-				<div class="container-contact100-form-btn">
-					<div class="wrap-contact100-form-btn">
-						<div class="contact100-form-bgbtn"></div>
-						<button class="contact100-form-btn">
-							Send Email
-						</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-
+	
 
          </asp:View>
 
+           
+            
+            
+            <asp:View ID="team" runat="server">
+                     <p>
+                    <br />
+                </p>
+                  <p>
+                    <br />
+                </p>
+             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <center><h2 style="color:black;font-weight:bold; font-family: 'Roboto Slab', serif;">OUR TEAM</h2></center>
+                <div class="row">
+                <p>
+<br />
+                </p>    
+                </div> 
+             <div class="row text-center">
+
+
+
+             <div class="container">
+                 <div class="row">
+                 <div class="col-md-6 pull-left">
+                     <div class="our-team img-thumbnail">
+                <div class="pic">
+                    <img src="images/bt8.jpg">
+                    <ul class="social">
+                      <li><a href="mailto:admin@sblab-nsit.net" class="fa fa-envelope"></a></li>
+                        <li><a href="callto:+911125000110" class="fa fa fa-phone"></a></li>
+                    </ul>
+                </div>
+                <div class="team-content">
+                    <h3 class="title" style="color:crimson;">Dr. Sonika Bhatnagar</h3>
+                    <span class="post bold" style="color:black; font-weight:bold;">Professor</span>
+                </div>
+            </div>
+                 </div>
+                     <div class="col-md-6 pull-right">
+                     <p class="lead" style="color:black; font-weight:bold; font-size:large; font-family: 'Roboto Slab', serif;" align="justify">
+                         I finished my Ph.D. and Post-Doctoral work in Department of Biophysics, AIIMS in 2002. 
+                         Subsequently, I have been associated with the B.E. Biotechnology Program since the very early stages. 
+                         During the early years, I was involved with the approval of course and development of basic infrastructure of the Divisional labs. 
+                         <br />
+                         <br />
+                         Currently, I am developing a Computational and Structural Biology Lab. for research and teaching.
+                         <br />
+                         
+                         <a href="https://www.innocentive.com/ar/challenge/bio?userName=ecc999" style="color:brown;">I have been awarded the Innocentive solver award for Identification of top five therapeutic targets for treatment of obesity. </a> 
+                         <br />
+                         <br />
+                         My research interests lie in the application of Computational and Structural Biology tools for gaining insights into Cardiovascular Disease and Bacterial Stress response with a long term focus on Drug target selection, Drug design and Repurposing. 
+                         Our work has also featured as Invited commentary on International Atherosclerosis Society Website<a href="www.athero.org" style="color:brown;"> (www.athero.org). </a>
+                     </p>
+                 </div>
+                 </div>
+
+                 <div class="row">
+                 <p>
+                     <br />
+                     </p>
+                 </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-6">
+            <div class="our-team img-thumbnail">
+                <div class="pic">
+                    <img src="images/nirupma.jpg">
+                    <ul class="social">
+                     <li><a href="mailto:nirupmasingh@sblab-nsit.net" class="fa fa-envelope"></a></li>
+                        <li><a href="callto:+911125000110" class="fa fa fa-phone"></a></li>
+                    </ul>
+                </div>
+                <div class="team-content">
+                    <h3 class="title" style="color:crimson;">Nirupma Singh</h3>
+                    <span class="post" style="color:#047168;">PhD. Scholar</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="our-team img-thumbnail">
+                <div class="pic">
+                    <img src="images/venu.jpg">
+                    <ul class="social">
+                        <li><a href="mailto:venugopalbhatia@sblab-nsit.net" class="fa fa-envelope"></a></li>
+                        <li><a href="callto:+911125000110" class="fa fa fa-phone"></a></li>
+                        
+                    </ul>
+                </div>
+                <div class="team-content">
+                    <h3 class="title" style="color:crimson;">Venugopal Bhatia</h3>
+                    <span class="post" style="color:#047168;">B.E. Student</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="our-team img-thumbnail">
+                <div class="pic">
+                    <img src="images/shubham.jpeg">
+                    <ul class="social">
+                        <li><a href="mailto:shubham@sblab-nsit.net" class="fa fa-envelope"></a></li>
+                        <li><a href="callto:+911125000110" class="fa fa fa-phone"></a></li>
+                    </ul>
+                </div>
+                <div class="team-content">
+                    <h3 class="title" style="color:crimson;">Shubham Singh</h3>
+                    <span class="post" style="color:#047168;" >B.E. Student</span>
+                </div>
+            </div>
+        </div>
+    </div>
+                                 <div class="row">
+                <p>
+<br />
+                </p>    
+                </div>
+</div>
+                 
+             </div>
+                             <div class="row">
+                <p>
+<br />
+                </p>    
+                </div>
+         </asp:View>
+
         </asp:MultiView>
+
+    <!--team css-->
+
     <style>
-        /*---------------------------------------------*/
-input {
-	outline: none;
-	border: none;
+        .our-team{
+    text-align: center;
+    transition: all 0.5s ease 0s;
 }
-
-input[type="number"] {
-    -moz-appearance: textfield;
-    appearance: none;
-    -webkit-appearance: none;
+.our-team:hover{
+    box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+.our-team .pic{
+    overflow: hidden;
+    position: relative;
 }
-
-textarea {
-  outline: none;
-  border: none;
+.our-team .pic:before,
+.our-team .pic:after{
+    content: "";
+    width: 200%;
+    height: 80%;
+    background: rgba(38,37,37,0.8);
+    position: absolute;
+    top: -100%;
+    left: -4%;
+    transform: rotate(45deg);
+    transition: all 0.5s ease 0s;
 }
-
-textarea:focus, input:focus {
-  border-color: transparent !important;
+.our-team .pic:after{
+    background: rgba(8,75,77,0.8);
+    top: auto;
+    left: auto;
+    bottom: -100%;
+    right: -4%;
 }
-
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; }
-input:focus::-moz-placeholder { color:transparent; }
-input:focus:-ms-input-placeholder { color:transparent; }
-
-textarea:focus::-webkit-input-placeholder { color:transparent; }
-textarea:focus:-moz-placeholder { color:transparent; }
-textarea:focus::-moz-placeholder { color:transparent; }
-textarea:focus:-ms-input-placeholder { color:transparent; }
-
-input::-webkit-input-placeholder { color: #999999;}
-input:-moz-placeholder { color: #999999;}
-input::-moz-placeholder { color: #999999;}
-input:-ms-input-placeholder { color: #999999;}
-
-textarea::-webkit-input-placeholder { color: #999999;}
-textarea:-moz-placeholder { color: #999999;}
-textarea::-moz-placeholder { color: #999999;}
-textarea:-ms-input-placeholder { color: #999999;}
-
-/*---------------------------------------------*/
-button {
-	outline: none !important;
-	border: none;
-	background: transparent;
+.our-team:hover .pic:before{ top: 0; }
+.our-team:hover .pic:after{ bottom: 0; }
+.our-team .pic img{
+    width: 100%;
+    height: auto;
 }
-
-button:hover {
-	cursor: pointer;
+.our-team .social{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: absolute;
+    bottom: 45%;
+    left: 0;
+    opacity: 0;
+    z-index: 2;
+    transition: all 0.5s ease 0.3s;
 }
-
-iframe {
-	border: none !important;
+.our-team:hover .social{ opacity: 1; }
+.our-team .social li{ display: inline-block; }
+.our-team .social li a{
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    color: #fff;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.3s ease 0s;
 }
-
-
-/*---------------------------------------------*/
-.container {
-	max-width: 1200px;
+.our-team .social li a:after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #db162f;
+    border-radius: 0 20px 20px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.3s ease 0s;
 }
-
-
-        .container-contact100 {
-  width: 100%;  
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  /*background: #e6e6e6;*/
-  
+.our-team .social li a:hover:after{ transform: rotate(180deg); }
+.our-team .team-content{ padding: 20px; }
+.our-team .title{
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #047168;
+    text-transform: uppercase;
+    margin-bottom: 7px;
 }
-
-.wrap-contact100 {
-  width: 550px;
-  background: transparent;
-  padding: 30px 0 80px 0;
+.our-team .post{
+    display: block;
+    font-size: 17px;
+    font-weight: 600;
+    color: #707070;
+    text-transform: capitalize;
 }
-
-
-/*==================================================================
-[ Form ]*/
-
-.contact100-form {
-  width: 100%;
+@media only screen and (max-width: 990px){
+    .our-team{ margin-bottom: 30px; }
 }
+        </style>
 
-.contact100-form-title {
-  display: block;
-  font-family: Oswald-Medium;
-  font-size: 30px;
-  color: #43383e;
-  line-height: 1.2;
-  text-align: left;
-  padding-bottom: 35px;
-}
+    <!--team css-->
 
-
-
-/*------------------------------------------------------------------
-[ Input ]*/
-
-.wrap-input100 {
-  width: 100%;
-  position: relative;
-  background-color: #fff;
-  margin-bottom: 17px;
-}
-
-.label-input100 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 58px;
-  height: 62px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  cursor: pointer;
-  font-size: 18px;
-  color: #999999;
-}
-
-.input100 {
-  display: block;
-  width: 100%;
-  background: transparent;
-  font-family: Oswald-Medium;
-  font-size: 15px;
-  color: #43383e;
-  line-height: 1.2;
-  padding: 0 5px;
-}
-
-
-/*---------------------------------------------*/
-input.input100 {
-  height: 62px;
-  padding: 0 20px 0 58px;
-}
-
-
-textarea.input100 {
-  min-height: 199px;
-  padding: 19px 20px 0 23px;
-}
-
-
-/*==================================================================
-[ Restyle Checkbox ]*/
-
-.contact100-form-checkbox {
-  padding-top: 12px;
-  padding-bottom: 20px;
-}
-
-.input-checkbox100 {
-  display: none;
-}
-
-.label-checkbox100 {
-  display: block;
-  position: relative;
-  padding-left: 32px;
-  cursor: pointer;
-  font-family: Oswald-Regular;
-  font-size: 15px;
-  color: #43383e;
-  line-height: 1.2;
-}
-
-.label-checkbox100::before {
-  content: "\f00c";
-  font-family: FontAwesome;
-  font-size: 15px;
-  color: transparent;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  border-radius: 2px;
-  background: #fff;
-  left: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.input-checkbox100:checked + .label-checkbox100::before {
-  color: #555555;
-}
-
-
-/*------------------------------------------------------------------
-[ Button ]*/
-.container-contact100-form-btn {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 13px;
-}
-
-.wrap-contact100-form-btn {
-  display: block;
-  position: relative;
-  z-index: 1;
-  border-radius: 31px;
-  overflow: hidden;
-}
-
-.contact100-form-bgbtn {
-  position: absolute;
-  z-index: -1;
-  width: 300%;
-  height: 100%;
-  background: #df2351;
-  background: -webkit-linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
-  background: -o-linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
-  background: -moz-linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
-  background: linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
-  top: 0;
-  left: -100%;
-
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
-}
-
-.contact100-form-btn {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-  min-width: 160px;
-  height: 62px;
-
-  font-family: Oswald-Medium;
-  font-size: 16px;
-  color: #fff;
-  line-height: 1.2;
-}
-
-.wrap-contact100-form-btn:hover .contact100-form-bgbtn {
-  left: 0;
-}
-
-/*------------------------------------------------------------------
-[ Responsive ]*/
-
-
-
-/*------------------------------------------------------------------
-[ Alert validate ]*/
-
-.validate-input {
-  position: relative;
-}
-
-.alert-validate::before {
-  content: attr(data-validate);
-  position: absolute;
-  max-width: 70%;
-  background-color: #fff;
-  border: 1px solid #c80000;
-  border-radius: 2px;
-  padding: 4px 25px 4px 10px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 2px;
-  pointer-events: none;
-
-  font-family: Oswald-Regular;
-  color: #c80000;
-  font-size: 13px;
-  line-height: 1.4;
-  text-align: left;
-
-  visibility: hidden;
-  opacity: 0;
-
-  -webkit-transition: opacity 0.4s;
-  -o-transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  transition: opacity 0.4s;
-}
-
-.alert-validate::after {
-  content: "\f06a";
-  font-family: FontAwesome;
-  display: block;
-  position: absolute;
-  color: #c80000;
-  font-size: 16px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 8px;
-}
-
-.alert-validate:hover:before {
-  visibility: visible;
-  opacity: 1;
-}
-
-@media (max-width: 992px) {
-  .alert-validate::before {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-
-
-    </style>
+    
 
 
     <style>
